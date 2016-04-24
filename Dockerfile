@@ -19,7 +19,9 @@ RUN apk --no-cache --update add --virtual build-dependencies \
 
             boost-dev \
             gmp-dev\
-            libmicrohttpd-dev
+            libmicrohttpd-dev \
+            openssl-dev
+
 
 RUN mkdir -p /src/deps
 
