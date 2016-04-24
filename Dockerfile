@@ -91,7 +91,7 @@ RUN cd webthree-umbrella && \
 RUN mkdir -p /src/webthree-umbrella/build
 WORKDIR /src/webthree-umbrella/build
 
-RUN cmake -DSOLIDITY=1 -DCMAKE_BUILD_TYPE=Release \
+RUN cmake -DSOLIDITY=0 -DCMAKE_BUILD_TYPE=Release \
           -DEVMJIT=0 -DGUI=0 -DFATDB=0 -DETHASHCL=0 -DMINIUPNPC=1 \
           -DTOOLS=0 -DTESTS=1 -DETH_STATIC=1 \
 
