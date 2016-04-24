@@ -141,17 +141,4 @@ RUN cmake -DSOLIDITY=0 -DCMAKE_BUILD_TYPE=Release \
 
 RUN sed -e 's/^#if defined(__linux__)/#if defined(__ignoreme__)/' -i ../libweb3core/libdevcore/Log.cpp
 
-RUN make --jobs=2 solc soltest
-
-RUN cp /src/webthree-umbrella/build/solidity/solc/solc /usr/local/bin/
-RUN cp /src/webthree-umbrella/build/solidity/test/soltest /usr/local/bin/
-
-RUN soltest
-
-RUN apk add file
-
-RUN file /usr/local/bin/solc
-RUN file /usr/local/bin/soltest
-
-RUN du -h /usr/local/bin/solc
-RUN du -h /usr/local/bin/soltest
+RUN make --jobs=2
