@@ -12,7 +12,7 @@ env:
       - "nQl0deg66ezv0vrLNBX95s6920B2kquYvuOPmn7TZqMxIkn0WRxVLuI4/fIfC4XWieTk0IxqWOpd9vj3cueoZ6mhSFZ43C9unWIYB+q0dwUv040dTGjIq0x01G4lSarBFq2w2sTKfvsjprxiLQTZqCAiaQy+jTVtrlXE3RU/LjfEhcadjNf2g46IDQUji6ZSJVPynHGsorNQwtXvroz0ceAQSqANPdmpoo5ivrFqpW/s3sMeS5zerGTYaefhN6e/Oyk+1YWxmsYG4rLgwfG82MImNSjJ+6qvdsubi6Gb7msFiyv4uVH0K/MMTUILgstm1oo+YbeunSdnM5VjeddaeDP3jigH/CLylQ3tfwYrp52KrV5NCBtLeYGcP/cqj9eVM6KQj+HGoY8K2jjFpt5Ly3beVHZ7TMjb7+8CDai15zF+EnloJGpnPkoKUr022V3yJm9WJSCElaoy5KwDTgnQKiJO0mLV1zI3qm9ZdlM6sFEIgfeD3C1DhyQde076t8M9cM5Kj0sD6didtDtIhsBRHN5ezE9aCFVbkDgev8hWqoTVVUYtwB0x/vd6BHKE4hoFecejvXcloqjP+bjJQzRQLKzJ0aAnI6cSxoe8hlCfy/pPY/LgIYe+zoUNBMENs9hulAZXUUKnMbxV6iRA95AZQKxAhwtdwwr+OMuejNZELm8="
 
 before_install:
-  - docker pull rainbeam/eth-static
+  - docker pull rainbeam/eth-static || :
 
 install:
   - docker build --rm --file=Dockerfile --tag=rainbeam/eth-static .
