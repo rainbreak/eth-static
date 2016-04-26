@@ -2,7 +2,7 @@
 
 ## Static, portable builds of Eth
 
-**Work in progess!**
+**Work in progess! Force pushing everywhere!**
 
 This is a script to produce a fully static build of `eth`, the
 Ethereum c++ client.
