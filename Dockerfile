@@ -99,8 +99,14 @@ RUN cmake -DSOLIDITY=0 -DCMAKE_BUILD_TYPE=Release \
 
           -DCMAKE_CXX_FLAGS='-Wno-error' \
 
+          -DGMP_LIBRARY=/usr/lib/libgmp.a \
+          -DGMP_INCLUDE_DIR=/usr/include/ \
+
           -DCURL_LIBRARY=/usr/lib/libcurl.a \
           -DCURL_INCLUDE_DIR=/usr/include/ \
+
+          -DMHD_LIBRARY=/usr/lib/libmicrohttpd.a \
+          -DMHD_INCLUDE_DIR=/usr/include \
 
           -DJSONCPP_LIBRARY=/src/built/lib/libjsoncpp.a \
           -DJSONCPP_INCLUDE_DIR=/src/built/include/ \
