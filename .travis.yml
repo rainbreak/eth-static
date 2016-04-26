@@ -19,6 +19,9 @@ install:
   - tmp_container=$(docker create rainbeam/eth-static sh)
   - docker cp ${tmp_container}:/usr/local/bin/eth .
 
+script:
+  - test true
+
 after_success:
   # trying to speed up build by caching the successful docker images
   - docker login -e "$DOCKER_EMAIL" -u "$DOCKER_USER" -p "$DOCKER_PASS"
