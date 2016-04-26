@@ -144,3 +144,5 @@ RUN cmake -DSOLIDITY=0 -DCMAKE_BUILD_TYPE=Release \
 RUN sed -e 's/^#if defined(__linux__)/#if defined(__ignoreme__)/' -i ../libweb3core/libdevcore/Log.cpp
 
 RUN make --jobs=2 eth testeth
+
+RUN cp webthree/eth/eth /usr/local/bin/
