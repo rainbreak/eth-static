@@ -84,10 +84,10 @@ RUN apk del boost-dev
 
 WORKDIR /src
 
-RUN git clone https://github.com/ethereum/webthree-umbrella
+RUN git clone https://github.com/rainbeam/webthree-umbrella
 
 RUN cd webthree-umbrella && \
-    git checkout release --force && \
+    git checkout static-linking --force && \
     git submodule update --init
 
 RUN mkdir -p /src/webthree-umbrella/build
