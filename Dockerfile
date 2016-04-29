@@ -99,6 +99,6 @@ RUN sh ./cmake_build.sh
 
 RUN sed -e 's/^#if defined(__linux__)/#if defined(__ignoreme__)/' -i ../libweb3core/libdevcore/Log.cpp
 
-RUN make --jobs=2 eth testeth
+RUN make --jobs=2 eth
 
 RUN cp webthree/eth/eth /usr/local/bin/
