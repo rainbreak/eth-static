@@ -84,6 +84,7 @@ RUN apk del boost-dev
 
 WORKDIR /src
 
+ADD https://api.github.com/repos/rainbeam/webthree-umbrella/commits?sha=static-linking /dev/null
 RUN git clone https://github.com/rainbeam/webthree-umbrella
 
 RUN cd webthree-umbrella && \
