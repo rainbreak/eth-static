@@ -17,6 +17,11 @@ RUN apk --no-cache --update add --virtual build-dependencies \
             python \
             scons\
 
+            autoconf \
+            automake \
+            libtool \
+            groff \
+
             boost-dev \
             gmp-dev\
             libmicrohttpd-dev \
@@ -41,6 +46,7 @@ RUN wget https://github.com/curl/curl/archive/${CURL}.tar.gz
 RUN tar -xzf ${CURL}.tar.gz
 
 WORKDIR ${CURL}
+RUN ./buildconf
 RUN ./configure --prefix=${PREFIX} --enable-static --disable-shared \
                 --disable-ldap --disable-ldaps --without-libidn \
                 --disable-rtsp --without-librtmp --disable-manual \
