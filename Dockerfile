@@ -100,4 +100,4 @@ RUN sh ./cmake_build.sh
 
 RUN make --jobs=2 eth
 
-RUN cp webthree/eth/eth /usr/local/bin/
+RUN install -s webthree/eth/eth /usr/local/bin/
