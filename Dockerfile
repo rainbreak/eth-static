@@ -85,6 +85,7 @@ RUN mkdir -p libjson-rpc-cpp/build && \
           -DCOMPILE_EXAMPLES=NO                        \
           -DCOMPILE_STUBGEN=NO                         \
           -DCMAKE_INSTALL_PREFIX=${PREFIX}             \
+          -DCMAKE_PREFIX_PATH=${PREFIX}                \
           .. && \
     make install
 
