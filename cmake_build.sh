@@ -5,8 +5,6 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -DTESTS=0 \
       -DSOLIDITY=0 \
       \
-      -DCMAKE_CXX_FLAGS='-Wno-error' \
-      \
       -DSTATIC_LINKING=1 \
       \
       -DJSONCPP_LIBRARY=/src/built/lib/libjsoncpp.a \
