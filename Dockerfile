@@ -37,24 +37,22 @@ RUN git clone https://github.com/open-source-parsers/jsoncpp.git
 RUN git clone https://github.com/cinemast/libjson-rpc-cpp
 RUN git clone https://github.com/google/leveldb
 RUN git clone https://github.com/miniupnp/miniupnp
+RUN git clone https://github.com/curl/curl
 
 ENV PREFIX /src/built
 
 ENV CURL curl-7_48_0
-RUN echo ${CURL}
 
-RUN wget https://github.com/curl/curl/archive/${CURL}.tar.gz
-RUN tar -xzf ${CURL}.tar.gz
-
-WORKDIR /src/built/${CURL}
-RUN ./buildconf
-RUN ./configure --prefix=${PREFIX} --enable-static --disable-shared \
+RUN cd curl \
+ && git checkout ${CURL} \
+ && ./buildconf \
+ && ./configure --prefix=${PREFIX} --enable-static --disable-shared \
                 --disable-ldap --disable-ldaps --without-libidn \
                 --disable-rtsp --without-librtmp --disable-manual \
                 --disable-tls-srip --without-gnutls \
-                --without-ssl --without-libssh2 --without-zlib
-RUN make
-RUN make install
+                --without-ssl --without-libssh2 --without-zlib \
+ && make \
+ && make install
 
 RUN mkdir -p ${PREFIX}/include ${PREFIX}/lib
 
