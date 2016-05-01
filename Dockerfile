@@ -37,9 +37,6 @@ RUN cd webthree-umbrella && \
 RUN mkdir -p /src/webthree-umbrella/build
 WORKDIR /src/webthree-umbrella/build
 
-# stop complaining about sys/poll.h
-RUN sed -i -E -e 's/include <sys\/poll.h>/include <poll.h>/' /usr/include/boost/asio/detail/socket_types.hpp
-
 ADD cmake_build.sh ./
 RUN sh ./cmake_build.sh
 
