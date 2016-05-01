@@ -35,10 +35,10 @@ RUN git clone https://github.com/miniupnp/miniupnp
 
 ENV PREFIX /src/built
 
-ENV CURL curl-7.48.0
+ENV CURL curl-7_48_0
 
-RUN wget https://curl.haxx.se/download/${CURL}.tar.bz2
-RUN tar -xjf ${CURL}.tar.bz2
+RUN wget https://github.com/curl/curl/archive/${CURL}.tar.gz
+RUN tar -xzf ${CURL}.tar.gz
 
 WORKDIR ${CURL}
 RUN ./configure --prefix=${PREFIX} --enable-static --disable-shared \
