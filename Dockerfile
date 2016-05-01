@@ -76,12 +76,6 @@ RUN cd miniupnp/miniupnpc && \
     make upnpc-static && \
     INSTALLPREFIX=/src/built/ make install
 
-# make sure that boost links statically
-RUN mkdir -p /src/boost/lib /src/boost/include/boost
-RUN cp /usr/lib/libboost*.a /src/boost/lib/
-RUN cp -r /usr/include/boost /src/boost/include/
-RUN apk del boost-dev
-
 WORKDIR /src
 
 ADD https://api.github.com/repos/rainbeam/webthree-umbrella/commits?sha=static-linking /dev/null
