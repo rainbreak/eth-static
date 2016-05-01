@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y build-essential \
 
                                       libcurl4-openssl-dev \
                                       libssh2-1-dev \
+                                      libssl-dev \
                                       libz-dev \
 
                                       libedit-dev \
