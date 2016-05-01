@@ -6,7 +6,11 @@ RUN apt-get update && apt-get install -y build-essential \
                                       libboost-all-dev \
                                       libcrypto++-dev \
                                       libcrypto++6 \
+
                                       libcurl4-openssl-dev \
+                                      libssh2-dev \
+                                      libz-dev \
+
                                       libedit-dev \
                                       libgmp-dev \
                                       libjsoncpp-dev \
@@ -17,7 +21,6 @@ RUN apt-get update && apt-get install -y build-essential \
                                       libminiupnpc-dev \
                                       libncurses5-dev \
                                       libreadline-dev \
-                                      libz-dev \
                                       opencl-headers
 
 WORKDIR /src
