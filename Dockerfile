@@ -22,7 +22,11 @@ RUN apt-get update && apt-get install -y build-essential \
                                       libminiupnpc-dev \
                                       libncurses5-dev \
                                       libreadline-dev \
-                                      opencl-headers
+                                      opencl-headers \
+
+                                      musl \
+                                      musl-dev \
+                                      musl-tools
 
 WORKDIR /src
 

@@ -5,4 +5,6 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -DTESTS=1 \
       -DSOLIDITY=1 \
       -DSTATIC_LINKING=1 \
+      -DCMAKE_C_COMPILER=/usr/bin/musl-gcc \
+      -DCMAKE_CXX_COMPILER=/usr/bin/musl-gcc \
       ..
