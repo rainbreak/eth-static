@@ -35,6 +35,20 @@ RUN git clone https://github.com/miniupnp/miniupnp
 
 ENV PREFIX /src/built
 
+ENV CURL curl-7.48.0
+
+RUN wget https://curl.haxx.se/download/${CURL}.tar.bz2
+RUN tar -xjf ${CURL}.tar.bz2
+
+WORKDIR ${CURL}
+RUN ./configure --prefix=${PREFIX} --enable-static --disable-shared \
+                --disable-ldap --disable-ldaps --without-libidn \
+                --disable-rtsp --without-librtmp --disable-manual \
+                --disable-tls-srip --without-gnutls \
+                --without-ssl --without-libssh2 --without-zlib
+RUN make
+RUN make install
+
 RUN mkdir -p ${PREFIX}/include ${PREFIX}/lib
 
 RUN cd cryptopp && \
