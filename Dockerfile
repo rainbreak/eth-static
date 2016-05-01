@@ -94,8 +94,7 @@ WORKDIR /src/webthree-umbrella/build
 # stop complaining about sys/poll.h
 RUN sed -i -E -e 's/include <sys\/poll.h>/include <poll.h>/' /usr/include/boost/asio/detail/socket_types.hpp
 
-COPY cmake_build.sh ./
-
+ADD cmake_build.sh ./
 RUN sh ./cmake_build.sh
 
 RUN make --jobs=2 eth solc soltest lllc
