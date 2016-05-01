@@ -41,11 +41,12 @@ RUN git clone https://github.com/miniupnp/miniupnp
 ENV PREFIX /src/built
 
 ENV CURL curl-7_48_0
+RUN echo ${CURL}
 
 RUN wget https://github.com/curl/curl/archive/${CURL}.tar.gz
 RUN tar -xzf ${CURL}.tar.gz
 
-WORKDIR ${CURL}
+WORKDIR /src/built/${CURL}
 RUN ./buildconf
 RUN ./configure --prefix=${PREFIX} --enable-static --disable-shared \
                 --disable-ldap --disable-ldaps --without-libidn \
