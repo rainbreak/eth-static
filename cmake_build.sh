@@ -7,4 +7,5 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -DSTATIC_LINKING=1 \
       -DCMAKE_C_COMPILER=/usr/bin/musl-gcc \
       -DCMAKE_CXX_COMPILER=/usr/bin/musl-gcc \
+      -DCMAKE_PREFIX_PATH=/src/built \
       ..
