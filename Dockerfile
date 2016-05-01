@@ -78,12 +78,13 @@ RUN cd miniupnp/miniupnpc && \
 
 WORKDIR /src
 
-ADD https://api.github.com/repos/rainbeam/webthree-umbrella/commits?sha=static-linking /dev/null
-RUN git clone https://github.com/rainbeam/webthree-umbrella
+ENV buildbranch=develop
+ADD https://api.github.com/repos/ethereum/webthree-umbrella/compare/${buildbranch}...HEAD /dev/null
+RUN git clone https://github.com/ethereum/webthree-umbrella
 
 RUN cd webthree-umbrella && \
-    git checkout static-linking --force && \
-    git submodule update --init
+    git checkout ${buildbranch} --force && \
+    git submodule update --init --recursive
 
 RUN mkdir -p /src/webthree-umbrella/build
 WORKDIR /src/webthree-umbrella/build
