@@ -86,8 +86,8 @@ RUN mkdir -p libjson-rpc-cpp/build && \
           -DCOMPILE_STUBGEN=NO                         \
           -DCMAKE_INSTALL_PREFIX=${PREFIX}             \
           -DCMAKE_PREFIX_PATH=${PREFIX}                \
-          -DCMAKE_CXX_FLAGS='-DCURL_STATICLIB=1'       \
-          -DCMAKE_C_FLAGS='-DCURL_STATICLIB=1'         \
+          -DCMAKE_CXX_FLAGS='-DCURL_STATICLIB'         \
+          -DCMAKE_C_FLAGS='-DCURL_STATICLIB'           \
           .. && \
     make install
 
