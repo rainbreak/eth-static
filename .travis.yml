@@ -20,9 +20,12 @@ install:
   # create a container to copy files from (can't copy from an image)
   - tmp_container=$(docker create rainbeam/eth-static sh)
   - docker cp ${tmp_container}:/usr/local/bin/eth .
+  - docker cp ${tmp_container}:/usr/local/bin/solc .
+  - docker cp ${tmp_container}:/usr/local/bin/soltest .
+  - docker cp ${tmp_container}:/usr/local/bin/lllc .
 
 script:
-  - test true
+  - ./soltest
 
 after_success:
   # trying to speed up build by caching the successful docker images
@@ -42,7 +45,11 @@ deploy:
   provider: releases
   api_key:
     secure: OB8pm+vDGDNJdmGMJqwJjMpk1o4t9HTbtgAJjxGb8SFYqeH334OJJxYToztiFJXkgbDeVGK0HRYo1GR8OS9df69rpZ3+T9BFYBvlUWMMJZzCIPz9uRm3tkFeed3rFJv0y4az+zxsxq8IlWb4yxaS+J6B66ge3cYsQQR5gm6LdURl3gfR2uQJq5cbBb2l/K7Ajkacs6S4siaQD1jhjC3H9fz61KFTjdDZKKeO1bhwPqMj8JjDres4u0GSN9wKZrOwutIoqKdgARmI6S5FFG2GDfDEc8AduwwITFKED6YdBNibwqfpHBKU8F7sArVUnxqR2CO9bvATBdXaGImGePxV/gBNvVpKzvQUN3o+0rLrr+uiWJWNSejUA1QMsJEno863PoMkkJ8R/6RMvDWcX2hRKefFeVdYmpRHrz4ds+oWeLXT+EcG/HC8+mIue8t3UTZcE7lDk/st6XrCnG24AarEfJvsG1rCATkeMRl1gMfV4QSRZ0d16rhp3g90JuPgXZQbRAaP9CYC04Y7TchnAfcPPxrv8pAo9RL5Ww0DRurCLtbaWqm/4KVxkGB8UOrgH3IJkqsQwOXLq3ldfPgdFI2+ClTkIH+ixJalcQ5vEZlQq7ah+F91fzgnYB9jNzBJKRzUJKY9sH4HKfJ3aPSUGocMufmnzYSGkMft79FfvhUu7Lo=
-  file: eth
+  file:
+    - eth
+    - solc
+    - soltest
+    - lllc
   skip_cleanup: true
   on:
     repo: rainbeam/eth-static

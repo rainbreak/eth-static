@@ -98,6 +98,6 @@ COPY cmake_build.sh ./
 
 RUN sh ./cmake_build.sh
 
-RUN make --jobs=2 eth
+RUN make --jobs=2 eth solc soltest lllc
 
-RUN install -s webthree/eth/eth /usr/local/bin/
+RUN install -s webthree/eth/{eth,solc,soltest,lllc} /usr/local/bin/
