@@ -4,7 +4,5 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -DTOOLS=0 \
       -DTESTS=1 \
       -DSOLIDITY=1 \
-      \
       -DSTATIC_LINKING=1 \
-      -DCMAKE_PREFIX_PATH=/src/built/ \
       ..
