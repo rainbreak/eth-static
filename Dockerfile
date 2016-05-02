@@ -7,6 +7,12 @@ RUN apt-get update && apt-get install -y build-essential \
                                       libcrypto++-dev \
                                       libcrypto++6 \
 
+                                      autoconf \
+                                      automake \
+                                      groff \
+                                      libtool \
+                                      perl \
+
                                       libcurl4-openssl-dev \
                                       libssh2-1-dev \
                                       libssl-dev \
