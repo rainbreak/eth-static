@@ -28,7 +28,7 @@ RUN apt-get update && apt-get install -y build-essential \
                                       musl-dev \
                                       musl-tools
 
-ENV CURL curl-7.48.0
+ENV CURL curl-7_48_0
 ENV PREFIX /src/built
 
 WORKDIR /src/deps
