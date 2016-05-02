@@ -28,23 +28,21 @@ RUN apt-get update && apt-get install -y build-essential \
                                       musl-dev \
                                       musl-tools
 
-
-WORKDIR /src/deps
-
 ENV CURL curl-7.48.0
 ENV PREFIX /src/built
 
-RUN wget https://curl.haxx.se/download/${CURL}.tar.bz2
-RUN tar -xjf ${CURL}.tar.bz2
+WORKDIR /src/deps
+RUN git clone https://github.com/curl/curl
 
-WORKDIR ${CURL}
-RUN ./configure --prefix=${PREFIX} --enable-static --disable-shared \
+RUN cd curl \
+ && git checkout ${CURL} \
+ && ./configure --prefix=${PREFIX} --enable-static --disable-shared \
                 --disable-ldap --disable-ldaps --without-libidn \
                 --disable-rtsp --without-librtmp --disable-manual \
                 --disable-tls-srip --without-gnutls \
-                --without-ssl --without-libssh2 --without-zlib
-RUN make
-RUN make install
+                --without-ssl --without-libssh2 --without-zlib \
+ && make \
+ && make install
 
 WORKDIR /src
 
