@@ -42,6 +42,7 @@ RUN git clone https://github.com/curl/curl
 
 RUN cd curl \
  && git checkout ${CURL} \
+ && ./buildconf \
  && ./configure --prefix=${PREFIX} --enable-static --disable-shared \
                 --disable-ldap --disable-ldaps --without-libidn \
                 --disable-rtsp --without-librtmp --disable-manual \
