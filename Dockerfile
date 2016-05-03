@@ -119,7 +119,7 @@ RUN sed -i -E -e 's/include <sys\/poll.h>/include <poll.h>/' /usr/include/boost/
 ADD cmake_build.sh ./
 RUN sh ./cmake_build.sh
 
-RUN make --jobs=2 ethminer
+RUN make --jobs=2 eth
 
 RUN install -s webthree/eth/eth /usr/local/bin/
 RUN install -s solidity/solc/solc /usr/local/bin/
